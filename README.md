@@ -1,39 +1,36 @@
-# Flipkart ML Project
+# 📦 Flipkart ML Project
 
 ## 📋 Overview
 
-This project analyzes customer support interactions from a Flipkart-like dataset and builds machine learning models to predict Customer Satisfaction (CSAT) scores. The aim is to use data science to learn **what drives satisfaction or dissatisfaction** and create a predictive model that can help the business proactively improve customer experience.
+This project analyzes customer support interactions from a Flipkart-like dataset and builds machine learning models to predict **Customer Satisfaction (CSAT)** scores. The goal is to identify key drivers of satisfaction/dissatisfaction and create a predictive model that helps businesses proactively improve customer experience.
 
 ---
 
 ## 🧠 Key Features
 
-* Exploratory Data Analysis (EDA): data cleaning, missing values, distributions, visualizations to uncover insights
-* Text preprocessing: customer remarks are cleaned, normalized, tokenized, vectorized (TF-IDF)
-* Categorical encoding (One-Hot, Label Encoding) & numerical feature transformations (outlier handling, scaling)
-* Feature engineering & feature selection: identifying the most impactful features for predicting CSAT
-* Multiple ML models built and evaluated (Logistic Regression, Random Forest, XGBoost)
-* Hyperparameter tuning to improve model performance
-* Model saving (pickle) and sanity check for deployment readiness
+* 📊 **EDA**: Cleaning, missing values handling, duplicates check, visualizations to uncover insights
+* 📝 **Text Preprocessing**: Customer remarks cleaning, normalization, tokenization, TF-IDF vectorization
+* 🔑 **Categorical Encoding**: One-Hot, Label Encoding (low, medium & high cardinality features)
+* 🛠️ **Feature Engineering**: Outlier handling, feature selection (Chi-Square, ANOVA, Random Forest)
+* ⚖️ **Imbalance Handling**: SMOTE applied for minority CSAT classes
+* 🤖 **ML Models**: Logistic Regression, Random Forest, XGBoost (final model)
+* 🎯 **Hyperparameter Tuning**: GridSearchCV for optimization
+* 💾 **Deployment Ready**: Best model saved using Pickle and tested on unseen data
 
 ---
 
-## 🛠️ Technologies & Tools
+## 🛠️ Tech Stack
 
-* Python (pandas, NumPy)
-* Scikit-learn for modeling, preprocessing, splitting, feature selection
-* Text processing with NLTK / TF-IDF vectorizer
-* XGBoost for the final model
-* Pickle to save the model
-* Jupyter Notebook for interactive development & visualization
+* **Languages/Libraries**: Python, pandas, NumPy, scikit-learn, XGBoost, NLTK, matplotlib, seaborn
+* **ML Workflow**: Preprocessing → Feature Engineering → Model Training → Hyperparameter Tuning → Deployment
 
 ---
 
-## 🔍 Data
+## 🔍 Dataset
 
-* File: `Customer_support_data.csv`
-* Roughly **85,000 rows** and **20 columns** (features include: channel, sub‐category, order & response timestamps, agent info, shift, customer remarks, etc.)
-* Target variable: `CSAT Score` – takes values 1 through 5
+* \~85,000 records and 20 columns
+* Features: Channel, Category, Sub-category, Agent details, Customer remarks, Order details, etc.
+* Target: `CSAT Score` (1 to 5)
 
 ---
 
@@ -42,72 +39,58 @@ This project analyzes customer support interactions from a Flipkart-like dataset
 ```
 Flipkart-ML-Project/
 │
-├── Customer_support_data.csv      # raw data  
-├── Sample_EDA_Submission_Template.ipynb    # exploratory data analysis  
-├── Sample_ML_Submission_Template.ipynb     # model building, training & evaluation  
-├── Flipkart project ppt.pptx        # presentation summarizing insights & model results  
-└── README.md                        # this file  
+├── Customer_support_data.csv                # Dataset
+├── Sample_EDA_Submission_Template.ipynb     # EDA Notebook
+├── Sample_ML_Submission_Template.ipynb      # ML Modeling Notebook
+├── Flipkart project ppt.pptx                # Presentation slides
+└── README.md                                # Project documentation
 ```
-
----
-
-## ✍️ How to Run
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/mangal-singh001/Flipkart-ML-Project-
-   ```
-
-2. Ensure you have the required Python packages (example: `requirements.txt`, or install manually):
-
-   ```bash
-   pip install pandas numpy scikit-learn xgboost nltk matplotlib seaborn
-   ```
-
-3. Open the EDA notebook (`Sample_EDA_Submission_Template.ipynb`) to explore the data and visualizations.
-
-4. Open the ML notebook (`Sample_ML_Submission_Template.ipynb`) to train models, tune parameters, evaluate them, and save the best model.
 
 ---
 
 ## 📈 Model Performance
 
-| Model                     | Accuracy | Key Strengths                                                                                                                   | Key Weaknesses                                                                              |
-| ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Logistic Regression       | \~37%    | Baseline model, interpretable features, good at detecting some low CSAT cases                                                   | Poor performance for most low/medium CSAT classes; biased toward high CSAT (=5)             |
-| Random Forest             | \~36%    | Slightly better balancing, more able to model non‐linear relationships                                                          | Still weak for minority dissatisfaction classes                                             |
-| **XGBoost (final model)** | \~69–70% | Best overall accuracy, good handling of major class, stronger F1 / precision / recall on majority class; tuned with hyperparams | Still misses many dissatisfied customers; needs stronger imbalance handling for classes 1–4 |
+| Model               | Accuracy | Highlights 🚀                              | Limitations ⚠️                      |
+| ------------------- | -------- | ------------------------------------------ | ----------------------------------- |
+| Logistic Regression | \~37%    | Interpretable baseline                     | Weak on minority CSAT classes       |
+| Random Forest       | \~36%    | Better with non-linear data                | Still biased towards majority class |
+| **XGBoost (Final)** | \~69%    | Best accuracy & F1, strong business impact | Needs better handling for low CSAT  |
 
 ---
 
-## 🔭 Insights & Business Value
+## 🔭 Insights & Business Impact
 
-* Major complaints come from **returns**, **delivery delays**, and specific sub-categories.
-* Customer remarks text holds signals: negative phrases are associated with low satisfaction.
-* Agent shift times and agent tenure also influence CSAT — suggests investment in training / staffing during certain shifts.
-* Predictive model lets business actively identify at‐risk customers and prioritize interventions.
-
----
-
-## 🔐 Deployment Notes
-
-* Final model (XGBoost) saved with Pickle (`.pkl` file)
-* Sanity check done on unseen data to verify predictions
-* All preprocessing (encoding, scaling, text transformation) is captured so deployment pipeline can replicate it
+* 📌 **Returns & delivery delays** are the most common causes of dissatisfaction
+* ⏳ Longer handling times often correlate with lower CSAT
+* 📞 Channel performance varies: inbound dominates but emails show mixed results
+* 👩‍💼 Agent tenure & shift influence satisfaction — training & scheduling improvements can boost scores
+* 🚀 Predicting CSAT in advance allows prioritizing **at-risk customers**, reducing churn and improving retention
 
 ---
 
-## ⚙️ Next Steps / Improvements
+## 🔐 Deployment
 
-* Use advanced imbalance handling (SMOTE, class weights, focal loss) so low CSAT classes are detected better
-* Try other models like LightGBM or ensemble stacking
-* Add feature explainability via SHAP for individual predictions to help business users see *why* a customer is predicted dissatisfied
-* Build a simple API or dashboard to deploy the model for real use
+* ✅ Final model: **XGBoost**
+* ✅ Saved using Pickle (`model.pkl`)
+* ✅ Tested on unseen data for sanity check
+* 🔮 Ready to be integrated with dashboards or APIs
+
+---
+
+## ⚙️ Future Improvements
+
+* 🔄 Better imbalance handling (focal loss, cost-sensitive learning)
+* 🌍 Deploy as an API with FastAPI/Flask
+* 📊 Use SHAP/LIME for model explainability
+* ⚡ Try LightGBM or ensemble stacking for higher accuracy
 
 ---
 
 ## 📫 Contact
 
-If you're interested in collaborating, discussing improvements, or just want to see more, reach me at:
-\[Insert your email or LinkedIn]
+👨‍💻 **Mangal Singh**
+🔗 [LinkedIn](https://www.linkedin.com/in/mangal-singh001)
+🐙 [GitHub](https://github.com/mangal-singh001)
+
+---
+
