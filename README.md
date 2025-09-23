@@ -95,5 +95,6 @@ Flipkart-ML-Project/
 🔗 [LinkedIn](https://www.linkedin.com/in/mangal-singh001)
 🐙 [GitHub](https://github.com/mangal-singh001)
 
----
+💬 I’d love to connect, collaborate, and discuss exciting opportunities in **Data Science & Machine Learning**.
 
+---
