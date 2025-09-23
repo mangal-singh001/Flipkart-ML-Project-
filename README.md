@@ -2,7 +2,10 @@
 
 ## 📋 Overview
 
-This project analyzes customer support interactions from a Flipkart-like dataset and builds machine learning models to predict **Customer Satisfaction (CSAT)** scores. The goal is to identify key drivers of satisfaction/dissatisfaction and create a predictive model that helps businesses proactively improve customer experience.
+This project was developed as part of my **first-week task during the Labmentix Internship**.
+The goal was to analyze customer support interactions from a Flipkart-like dataset and build machine learning models to predict **Customer Satisfaction (CSAT)** scores.
+
+The project highlights how **data science can uncover key drivers of satisfaction/dissatisfaction** and create predictive models that help businesses proactively improve customer experience.
 
 ---
 
